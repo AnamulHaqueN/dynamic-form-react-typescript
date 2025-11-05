@@ -16,14 +16,14 @@ interface FieldProps {
 const Field = ({field}: FieldProps) => {
   return (
     <div>
-        {field.type === 'text' && <TextComponent field = {field} />}
-        {field.type === 'email' && <EmailComponent field = {field} />}
+        {field.type === 'text' && <TextComponent field = {field} />} 
+        {/* {field.type === 'email' && <EmailComponent field = {field} />} */}
         {field.type === 'radio' && <RadioComponent  field = {field} />}
-        {field.type === 'password' && <PasswordComponent field = {field} />}
+        {/* {field.type === 'password' && <PasswordComponent field = {field} />}
         {field.type === 'select' && <SelectComponent field = {field} />}
         {field.type === 'number' && <NumberComponent field = {field} />}
         {field.type === 'textarea' && <TextAreaComponent field = {field} />}
-        {field.type === 'checkbox' && <CheckComponent field = {field} />}
+        {field.type === 'checkbox' && <CheckComponent field = {field} />} */}
         
     </div>
   )

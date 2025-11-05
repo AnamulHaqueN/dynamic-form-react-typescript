@@ -25,7 +25,7 @@ function Fetch() {
 
   if (loading) return <p>Loading data...</p>;
   if (error) return <p>Error: {error.message}</p>;
-
+  console.log(data.fields[3]);
   return (
     <>
       <h1>{data.formId}</h1>
