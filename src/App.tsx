@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <Fetch />
-      <h1>Hello App</h1>
     </>
   );
 }
