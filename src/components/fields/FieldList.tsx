@@ -12,14 +12,14 @@ interface FieldProps {
   field: FieldType;
 }
 
-const Field = ({ field }: FieldProps) => {
+const FieldList = ({field}: FieldProps) => {
   switch (field.type) {
     case "text":
       return <TextComponent field={field} />;
     case "email":
       return <EmailComponent field={field} />;
     case "radio":
-      return <RadioComponent field={field} />;
+      return <RadioComponent field={field}/>;
     case "password":
       return <PasswordComponent field={field} />;
     case "select":
@@ -35,4 +35,4 @@ const Field = ({ field }: FieldProps) => {
   }
 };
 
-export default Field;
+export default FieldList;

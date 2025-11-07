@@ -1,12 +1,8 @@
-import { Form, message, Select } from "antd";
+import { Form, Select } from "antd";
 import type { FieldType } from "../types/FieldType";
-import type { Rule } from "antd/es/form";
 import { getValidationRules } from "../utils/validation";
 
-interface OptionType {
-  label: string;
-  value: string;
-}
+
 
 interface fieldProps {
     field: FieldType;

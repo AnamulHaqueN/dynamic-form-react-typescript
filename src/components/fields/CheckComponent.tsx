@@ -1,6 +1,5 @@
 import { Checkbox, Form, message } from 'antd';
 import type { FieldType } from '../types/FieldType'
-import type { Rule } from 'antd/es/form';
 import { getValidationRules } from '../utils/validation';
 
 interface fieldProps {

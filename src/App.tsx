@@ -1,11 +1,12 @@
 import "./App.css";
-import Fetch from "./components/Fetch";
+import data from "../public/data.json";
+import DynamicForm from "./components/DynamicForm";
 
 
 function App() {
   return (
     <>
-      <Fetch />
+      <DynamicForm data = {data} />
     </>
   );
 }

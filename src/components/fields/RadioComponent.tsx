@@ -1,15 +1,14 @@
 import { Form, Radio } from "antd";
 import type { FieldType } from "../types/FieldType";
-import type { Rule } from "antd/es/form";
 import { getValidationRules } from "../utils/validation";
 
 interface FieldProps {
   field: FieldType;
 }
 
-const RadioComponent = ({ field }: FieldProps) => {
+const RadioComponent = ({ field}: FieldProps) => {
   const rules = getValidationRules(field);
-
+  
   return (
     <Form.Item
       key={field.id}

@@ -9,31 +9,58 @@ export interface validations {
 
 export interface option {
    label: string,
-   value?: string,
+   value?: string | number | boolean,
    message?: string
 }
 
-export interface condition {
-    field: string,
-    operator: string,
-    value: string,
+export interface Condition {
+  field: string; // e.g. "{{userType}}"
+  operator:
+    | "==="
+    | "!=="
+    | ">"
+    | "<"
+    | ">="
+    | "<="
+    | "includes"
+    | "!includes";
+  value: any;
 }
 
 export interface FieldType{
     id: string,
     type: FieldTypeName,
     name: string,
-    label: string,
+    label?: string,
     placeholder?:string,
-    defaultValue?:string,
+    defaultValue?:string | boolean,
     validations?:validations[],
     options?:option[],
-    condition?:condition[],
+    condition?:Condition,
     dependsOn?:string,
 }
 
 export interface FormData {
     "formId": string,
     "title": string,
-    field: FieldType[];
+    fields: FieldType[];
 }
+
+export type FormValues = {
+  userType?: string;
+  email?: string;
+  password?: string;
+  companyName?: string;
+  taxId?: string;
+  country?: string;
+  state?: string;
+  city?: string;
+  zipCode?: string;
+  specialOffers?: boolean;
+  offerType?: string;
+  adminCode?: string;
+  age?: number;
+  comments?: string;
+};
+
+export type FormFieldValues = keyof FormValues;
