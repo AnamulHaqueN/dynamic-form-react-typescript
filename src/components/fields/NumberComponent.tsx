@@ -1,4 +1,4 @@
-import { Form, Input } from "antd";
+import { Form, Input, InputNumber } from "antd";
 import type { FieldType } from "../types/FieldType";
 import { getValidationRules } from "../utils/validation";
 
@@ -16,7 +16,7 @@ const TextComponent = ({ field }: fieldProps) => {
       label={field.label}
       rules={rules}
     >
-      <Input placeholder={field.placeholder} />
+      <InputNumber placeholder={field.placeholder} />
     </Form.Item>
   );
 };

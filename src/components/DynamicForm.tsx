@@ -7,7 +7,7 @@ interface PropsData {
 }
 
 const DynamicForm = ({data}: PropsData) => {
-  console.log(data);
+  //console.log(data);
   const [form] = Form.useForm<FormValues>();
   const allValues = Form.useWatch([], form);
   
@@ -29,10 +29,10 @@ const DynamicForm = ({data}: PropsData) => {
   // 🔹 When a field changes, reset all fields that depend on it
   const handleDependencies = (changedValues: any) => {
     const changedField = Object.keys(changedValues)[0];
+    const changedValue = changedValues[changedField];
     const dependentFields = getAllDependents(changedField);
 
-    if (dependentFields.length > 0) {
-      console.log("Resetting dependent fields:", dependentFields);
+    if (dependentFields.length > 0 && typeof changedValue !== "boolean") {
       form.resetFields(dependentFields as (keyof FormValues)[]);
     }
   };
@@ -55,6 +55,7 @@ const DynamicForm = ({data}: PropsData) => {
         labelCol={{span: 12}}
         wrapperCol={{span: 25}}
         onValuesChange={handleDependencies}
+        autoComplete='off'
       >
       
        {data.fields.map((field) => (
@@ -67,10 +68,10 @@ const DynamicForm = ({data}: PropsData) => {
             evaluateCondition(form, field.condition ?? true) ? (
               <Form.Item
                 // label={field.type !== "checkbox" ? field.label: ""}
-                // name={field.name}
-                // valuePropName={
-                //   field.type==="checkbox" ? "checked": "value"
-                // }
+                name={field.name}
+                valuePropName={
+                  field.type==="checkbox" ? "checked": "value"
+                }
                   initialValue={field.defaultValue}
               >
                 <FieldList field={field} />
@@ -85,6 +86,17 @@ const DynamicForm = ({data}: PropsData) => {
           submit
         </Button>
        </Form.Item>
+       
+       <Form.Item>
+        <Button 
+        type="primary" 
+        htmlType='button' 
+        onClick={() => form.resetFields()}
+        >
+          Reset
+        </Button>
+       </Form.Item>
+
       </Form>
 
     </div>

@@ -10,7 +10,7 @@ const CheckComponent = ({field}: fieldProps) => {
   const rules = getValidationRules(field);
 
   return (
-    <Form.Item label={field.type}
+    <Form.Item name={field.name}
     valuePropName="checked"
     rules={rules}
     >
